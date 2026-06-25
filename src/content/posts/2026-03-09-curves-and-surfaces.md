@@ -1,0 +1,136 @@
+---
+title: 【更新中】（古典）微分几何笔记
+published: 2026-06-25
+tags:
+  - 微分几何
+  - 几何
+draft: false
+description: 本学期几何学课程前半段讲授空间曲线曲面的（部分）微分几何知识，此处为我针对课堂知识和一些阅读内容所做的笔记。
+category: 数学
+slug: differential-geometry-notes
+---
+## 关于“曲线”“曲面”
+
+我们可以将曲线曲面作为 $\mathbb{R}^3$ 的一个子集来理解，在这个意义下我们分别定义空间中的一维、二维正则子流形为“空间曲线”和“空间曲面”。
+
+另一方面，可以考虑如下情形：一个粒子在空间中运动的“轨迹曲线”，可以用时间参数 $t$ 描述。这提示我们可以用一个参数（以及一个参数到 $\mathbb{R}^3$ 的映射）来刻画曲线。类似地也可以用两个参数和相应的从 $\mathbb{R}^2$ 到空间的映射来刻画曲面。
+
+## 空间曲线论
+
+内容较少，主要包含Frenet标架和Frenet方程。
+
+## 空间曲面论
+
+### 第一和第二基本形式
+
+我们主要讨论 $\mathbb{E}^3$ 中的正则参数曲面片，需要用到直接从欧氏空间 $\mathbb{R}^3$ 中继承而来的内积。
+
+第一基本形式可认为是“度量张量”，输入两个向量得到的就是它们的内积。这使我们能够谈论曲面上的长度、面积等概念。
+
+考虑用参数坐标相关的量来描述第一基本形式。对平面中开区域 $U$ ，我们将其中的点 $u$ 坐标记为 $(u^1, u^2)$ 。由于对 $p \in U$ ，函数 $\phi : U \rightarrow \mathbb{R}^3$ 给出曲面在 $\phi(p)$ 处切平面的一组基 $\{\frac{\partial \phi}{\partial u^1}, \frac{\partial \phi}{\partial u^2}\}$ ，于是第一基本形式可以表示为（尖括号表示内积）：
+
+$$
+g_{ij} = \left\langle \frac{\partial \phi}{\partial u^i}, \frac{\partial \phi}{\partial u^j} \right\rangle
+$$
+
+下面考虑如何描述曲面的弯曲，并引入第二基本形式。正则参数曲面片总可以定向，曲面上各点处可以全部取“在曲面同一侧”的单位法向量，用这个想法定义单位法向量和高斯映射 $\mathcal{G}: U \rightarrow \mathbb{S}^2$ 如下：
+
+$$ 
+\mathbf{n}(u) = \frac{\frac{\partial \phi}{\partial u^1}(u) \times \frac{\partial \phi}{\partial u^2}(u)}{\left\| \frac{\partial \phi}{\partial u^1}(u) \times \frac{\partial \phi}{\partial u^2}(u) \right\|}
+\\
+$$
+
+$$
+\mathcal{G}(u) = \mathbf{n}(u)
+$$
+
+为刻画曲面的弯曲行为，自然可以问：在曲面上移动一段距离之后，法向量变化了多少？
+
+熟知 $\phi$ 诱导出 $u$ 处切空间 $T_uU$ 到 $\phi(u)$ 处切平面 $T_u\phi$ 的切映射，这个切映射给出两者的线性同构。所以，我们可以把 $T_u\phi$ 中的元素拉回 $T_uU$ 中，再作用一个高斯映射的切映射，得到的就是 $\mathbf{n}$ 的变化。Weingarten映射 $W: T_u\phi \rightarrow T_u\phi$ 的定义与上面的想法一致，只是出于习惯加了一个负号：
+
+$$
+W = -\left(D\mathcal{G}\big|_{u}\right)\circ\left(D\phi\big|_{u}\right)^{-1}
+$$
+
+可以证明 $W$ 是自伴算子，因此可对角化：
+
+$$
+\left\langle
+W\left(\frac{\partial \phi}{\partial u^i}\right), \frac{\partial \phi}{\partial u^j}
+\right\rangle
+=
+\left\langle
+-\frac{\partial \mathbf{n}}{\partial u^i},
+\frac{\partial \phi}{\partial u^j}
+\right\rangle
+=
+-\frac{\partial}{\partial u^i}
+\left\langle
+\mathbf{n},
+\frac{\partial \phi}{\partial u^j}
+\right\rangle
++
+\left\langle
+\mathbf{n},
+\frac{\partial^2 \phi}{\partial u^i\,\partial u^j}
+\right\rangle
+=
+\left\langle
+\mathbf{n},
+\frac{\partial^2 \phi}{\partial u^i\,\partial u^j}
+\right\rangle
+$$
+
+（最后一项显然关于 $i$ 和 $j$ 对称）
+
+第二基本形式定义成
+
+$$
+II(X, Y) = \langle W(X), Y \rangle
+$$
+
+由上可以直接得到基 $\{\frac{\partial \phi}{\partial u^1}, \frac{\partial \phi}{\partial u^2}\}$ 下第二基本形式的表达式：
+
+$$
+h_{ij} = \left\langle
+\mathbf{n},
+\frac{\partial^2 \phi}{\partial u^i\,\partial u^j}
+\right\rangle
+=
+\left\langle
+-\frac{\partial \mathbf{n}}{\partial u^i},
+\frac{\partial \phi}{\partial u^j}
+\right\rangle
+$$
+
+### 曲面的曲率
+
+对曲面上的弧长参数曲线 $\gamma$ ，由于 $\ddot{\gamma} \perp \dot{\gamma}$ ，有如下的分解：
+
+$$
+\ddot{\gamma} = \kappa_n \mathbf{n} + \kappa_g \mathbf{n} \times \dot{\gamma}
+$$
+
+其中，$\kappa_n$ 只取决于单位切向量 $\dot{\gamma}$ ：
+
+$$
+\kappa_n = \langle \ddot{\gamma}, \mathbf{n} \rangle =
+- \left\langle
+\dot{\gamma}, \frac{\partial \mathbf{n}}{\partial s}
+\right\rangle
+=
+\langle \dot{\gamma}, W(\dot{\gamma}) \rangle
+= II(\dot{\gamma}, \dot{\gamma})
+$$
+
+Weingarten映射的两个特征值 $\kappa_1, \kappa_2$ 即为主曲率。相应的特征向量的线向为主方向，且主方向上的单位切向量能使得 $II(\dot{\gamma}, \dot{\gamma})$ 取到极值。
+平均曲率 $H$ 和Gauss曲率 $K$ 的定义如下：
+
+$$
+H = \frac{1}{2} tr(W) = \frac{1}{2}(\kappa_1 + \kappa_2)
+$$
+
+$$
+K = det(W) = \kappa_1 \kappa_2
+$$
+
