@@ -9,14 +9,14 @@ export const siteConfig: SiteConfig = {
 	title: "LocallyCH",
 
 	// 站点副标题
-	subtitle: "Demo site",
+	subtitle: "A World of Fantasy",
 
 	// 站点 URL
 	site_url: "https://locallych.top",
 
 	// 站点描述
 	description:
-		"一个更新不勤快的普通人创作的各种产品。",
+		"一个更新不勤快的普通人的扭曲幻想合集。",
 
 	// 站点关键词
 	keywords: [
