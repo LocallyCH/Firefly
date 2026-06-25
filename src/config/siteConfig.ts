@@ -78,7 +78,7 @@ export const siteConfig: SiteConfig = {
 			alt: "🍀",
 		},
 		// 导航栏标题
-		title: "Firefly",
+		title: "LocallyCH",
 		// 全宽导航栏，导航栏是否占满屏幕宽度
 		widthFull: false,
 		// 导航菜单对齐方式，left：左对齐，center：居中
@@ -101,11 +101,11 @@ export const siteConfig: SiteConfig = {
 		// 友链页面开关
 		friends: true,
 		// 打赏页面开关
-		sponsor: true,
+		sponsor: false,
 		// 留言板页面开关，需要配置评论系统
 		guestbook: true,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐
-		bangumi: true,
+		bangumi: false,
 		// 相册页面开关
 		gallery: true,
 	},
