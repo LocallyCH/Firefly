@@ -12,7 +12,7 @@ export const profileConfig: ProfileConfig = {
 	name: "LocallyCH",
 
 	// 个人签名
-	bio: "可爱或不可爱的生物都不可食用！",
+	bio: "生物无论可爱与否都不可食用！",
 
 	// 链接配置
 	// 已经预装的图标集：fa7-brands，fa7-regular，fa7-solid，material-symbols，simple-icons
