@@ -34,6 +34,22 @@ export const galleryConfig: GalleryConfig = {
 			password: "123456",
 			passwordHint: "示例密码123456",
 		}, */
+		{
+      	id: "Anqing-2026",        // 对应 public/gallery/shanghai-2025/ 目录
+      	name: "安庆行（2026清明）",
+      	description: "记录2026清明前往安庆桐城及海子故乡查湾村",
+      	location: "安庆",
+      	date: "2026-04-05",
+      	tags: ["旅行", "安徽"],
+    	},
+		{
+      	id: "Switzerland-2026",        // 对应 public/gallery/shanghai-2025/ 目录
+      	name: "瑞士环线（2026夏）",
+      	description: "走过法语德语意语区，顺道体验琉森音乐节",
+      	location: "瑞士",
+      	date: "2026-08-24",
+      	tags: ["旅行", "欧洲"],
+    	},
 	],
 
 	// 瀑布流最小列宽(px)，浏览器根据容器宽度自动计算列数，默认 240
